@@ -8,6 +8,7 @@ from rest_framework import generics
 from rest_framework import status
 from rest_framework.response import Response
 from django.contrib.auth.models import Group
+import json
 
 class MaestrosAll(generics.CreateAPIView):
     permission_classes = (permissions.IsAuthenticated,)
@@ -64,6 +65,7 @@ class MaestroView(generics.CreateAPIView):
                 cubiculo = request.data['cubiculo'],
                 area_investigacion = request.data['area_investigacion'],
                 materias_json = request.data['materias_json']
+                #materias_json = json.dumps(request.data['materias_json'])
             )
             maestro.save()
 

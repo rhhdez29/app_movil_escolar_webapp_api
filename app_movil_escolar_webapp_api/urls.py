@@ -5,6 +5,8 @@ from django.conf.urls.static import static
 from .views.bootstrap import VersionView
 from app_movil_escolar_webapp_api.views import bootstrap
 from app_movil_escolar_webapp_api.views import users
+from app_movil_escolar_webapp_api.views import alumnos
+from app_movil_escolar_webapp_api.views import maestros
 from app_movil_escolar_webapp_api.views import auth
 #from app_movil_escolar_webapp_api.views import alumnos
 #from app_movil_escolar_webapp_api.views import profesores
@@ -18,11 +20,11 @@ urlpatterns = [
     #Edit admin
     #path('admins-edit/', users.AdminsViewEdit.as_view()),
 
-    path('alumno/', users.AlumnoView.as_view()),
-    path('list/alumnos', users.AlumnosAll.as_view()),
+    path('alumno/', alumnos.AlumnoView.as_view()),
+    path('list/alumnos', alumnos.AlumnosAll.as_view()),
 
-    path('maestro/', users.MaestroView.as_view()),
-    path('list/maestros', users.MaestrosAll.as_view()),
+    path('maestro/', maestros.MaestroView.as_view()),
+    path('list/maestros', maestros.MaestrosAll.as_view()),
 ]
 
 if settings.DEBUG:
