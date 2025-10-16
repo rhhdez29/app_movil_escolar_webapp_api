@@ -17,6 +17,12 @@ urlpatterns = [
     path('list/admin', users.AdminAll.as_view()),
     #Edit admin
     #path('admins-edit/', users.AdminsViewEdit.as_view()),
+
+    path('alumno/', users.AlumnoView.as_view()),
+    path('list/alumnos', users.AlumnosAll.as_view()),
+
+    path('maestro/', users.MaestroView.as_view()),
+    path('list/maestros', users.MaestrosAll.as_view()),
 ]
 
 if settings.DEBUG:

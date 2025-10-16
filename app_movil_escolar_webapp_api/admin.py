@@ -4,6 +4,8 @@ from app_movil_escolar_webapp_api.models import *
 
 
 @admin.register(Administradores)
+@admin.register(Alumnos)
+@admin.register(Maestros)
 
 #TODO: Aqui agregar el de estudiantes y profesores
 
