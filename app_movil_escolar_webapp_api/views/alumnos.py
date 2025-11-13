@@ -10,11 +10,13 @@ from rest_framework.response import Response
 from django.contrib.auth.models import Group
 
 class AlumnosAll(generics.CreateAPIView):
+    #Verificar si el usuario esta autenticado
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
-        user = request.user
-        #TODO: Regresar perfil del usuario
-        return Response({})
+        alumnos = Alumnos.objects.filter(user__is_active = 1).order_by("id")
+        lista = AlumnoSerializer(alumnos, many=True).data
+        
+        return Response(lista, 200)
 
 class AlumnoView(generics.CreateAPIView):
 

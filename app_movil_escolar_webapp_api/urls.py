@@ -8,23 +8,27 @@ from app_movil_escolar_webapp_api.views import users
 from app_movil_escolar_webapp_api.views import alumnos
 from app_movil_escolar_webapp_api.views import maestros
 from app_movil_escolar_webapp_api.views import auth
-#from app_movil_escolar_webapp_api.views import alumnos
-#from app_movil_escolar_webapp_api.views import profesores
 
 urlpatterns = [
     
     #Create admin
     path('admin/', users.AdminView.as_view()),
     #Admin data
-    path('list/admin', users.AdminAll.as_view()),
+    path('lista-admins/', users.AdminAll.as_view()),
     #Edit admin
     #path('admins-edit/', users.AdminsViewEdit.as_view()),
 
-    path('alumno/', alumnos.AlumnoView.as_view()),
-    path('list/alumnos', alumnos.AlumnosAll.as_view()),
+    path('alumnos/', alumnos.AlumnoView.as_view()),
+    path('lista-alumnos/', alumnos.AlumnosAll.as_view()),
 
-    path('maestro/', maestros.MaestroView.as_view()),
-    path('list/maestros', maestros.MaestrosAll.as_view()),
+    path('maestros/', maestros.MaestroView.as_view()),
+
+    path('lista-maestros/', maestros.MaestrosAll.as_view()),
+    #Login
+    path('login/', auth.CustomAuthToken.as_view()),
+    #Logout
+    path('logout/', auth.Logout.as_view()),
+
 ]
 
 if settings.DEBUG:

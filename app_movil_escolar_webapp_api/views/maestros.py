@@ -11,11 +11,12 @@ from django.contrib.auth.models import Group
 import json
 
 class MaestrosAll(generics.CreateAPIView):
+    # Necesita permisos de autenticación de usuario para poder acceder a la petición
     permission_classes = (permissions.IsAuthenticated,)
     def get(self, request, *args, **kwargs):
-        user = request.user
-        #TODO: Regresar perfil del usuario
-        return Response({})
+        maestros = Maestros.objects.filter(user__is_active=1).order_by("id")
+        lista = MaestroSerializer(maestros, many=True).data
+        return Response(lista, 200)
 
 class MaestroView(generics.CreateAPIView):
 
@@ -49,7 +50,7 @@ class MaestroView(generics.CreateAPIView):
             user.save()
             #Encriptamos la contraseña
             user.set_password(password)
-            user.save()
+            user.save()       
 
             group, created = Group.objects.get_or_create(name=role)
             group.user_set.add(user)
