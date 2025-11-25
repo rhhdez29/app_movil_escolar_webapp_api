@@ -45,10 +45,12 @@ class CustomAuthToken(ObtainAuthToken):
                 maestro["rol"] = "maestro"
                 return Response(maestro,200)
             if role_names == 'administrador':
-                user = UserSerializer(user, many=False).data
-                user['token'] = token.key
-                user["rol"] = "administrador"
-                return Response(user,200)
+                # user = UserSerializer(user, many=False).data
+                admin = Administradores.objects.filter(user=user).first()
+                admin = AdminSerializer(admin).data
+                admin['token'] = token.key
+                admin["rol"] = "administrador"
+                return Response(admin,200)
             else:
                 return Response({"details":"Forbidden"},403)
                 pass

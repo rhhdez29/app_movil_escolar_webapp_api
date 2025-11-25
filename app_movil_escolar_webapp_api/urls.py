@@ -7,6 +7,7 @@ from app_movil_escolar_webapp_api.views import bootstrap
 from app_movil_escolar_webapp_api.views import users
 from app_movil_escolar_webapp_api.views import alumnos
 from app_movil_escolar_webapp_api.views import maestros
+from app_movil_escolar_webapp_api.views import materias
 from app_movil_escolar_webapp_api.views import auth
 
 urlpatterns = [
@@ -24,6 +25,14 @@ urlpatterns = [
     path('maestros/', maestros.MaestroView.as_view()),
 
     path('lista-maestros/', maestros.MaestrosAll.as_view()),
+
+    path('materias/', materias.MateriaView.as_view()),
+
+    path('lista-materias/', materias.MateriasAll.as_view()),
+
+    #Total users
+    path('total-usuarios/', users.TotalUsers.as_view()),
+
     #Login
     path('login/', auth.CustomAuthToken.as_view()),
     #Logout
