@@ -30,13 +30,12 @@ class MateriaView(generics.CreateAPIView):
         materia = MateriaSerializer(materia, many=False).data
         # Si todo es correcto, regresamos la información
         return Response(materia, 200)
-
+        
     #Registrar una nueva materia
     @transaction.atomic
     def post(self, request, *args, **kwargs):
         #serializamos los datos de la materia para volverla de nuevo a json
         materia = MateriaSerializer(data=request.data)
-        print(materia)
 
         if materia.is_valid(): #Validar los datos
             nrc = request.data['nrc']
