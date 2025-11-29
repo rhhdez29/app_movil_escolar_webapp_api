@@ -20,7 +20,7 @@ if RENDER_EXTERNAL_HOSTNAME:
 
 # IMPORTANTE: agrega aquí el dominio de tu frontend en Vercel
 # ejemplo: https://app-movil-escolar-webapp.vercel.app
-FRONTEND_ORIGIN = "https://app-movil-escolar-webapp.vercel.app/"  # <-- cámbialo
+FRONTEND_ORIGIN = "https://app-movil-escolar-webapp.vercel.app"  # <-- cámbialo
 
 CSRF_TRUSTED_ORIGINS = []
 if RENDER_EXTERNAL_HOSTNAME:
