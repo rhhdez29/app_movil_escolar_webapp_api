@@ -12,4 +12,4 @@ google-cloud-storage==2.15.0
 Pillow==10.4.0
 gunicorn
 psycopg2-binary
-dj-database-urlcd
+dj-database-url
